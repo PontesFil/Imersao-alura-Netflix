@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tela de seleção de perfis da Netlipe, inspirada na Netflix, feita apenas com frontend.">
+  <title>Netlipe | Quem está assistindo?</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;700&family=Montserrat:wght@400;500;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./style/style.css">
+</head>
+
+<body>
+  <a class="sr-only" href="#mainContent">Pular para o conteúdo principal</a>
+
+  <div class="screen-transition" id="screenTransition" aria-hidden="true">
+    <span class="screen-transition-logo">NETLIPE</span>
+  </div>
+
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="./index.html" aria-label="Página inicial da Netlipe">
+        <span>NETLIPE</span>
+      </a>
+
+      <div class="theme-switcher">
+        <span class="theme-switcher-text" id="themeSwitcherLabel">Tema</span>
+        <button
+          class="theme-toggle"
+          type="button"
+          id="themeToggle"
+          aria-labelledby="themeSwitcherLabel"
+          aria-label="Alternar entre modo escuro e claro"
+          aria-pressed="false">
+          <span class="theme-toggle-track" aria-hidden="true">
+            <span class="theme-toggle-icon theme-toggle-icon-dark">☾</span>
+            <span class="theme-toggle-thumb"></span>
+            <span class="theme-toggle-icon theme-toggle-icon-light">☼</span>
+          </span>
+        </button>
+      </div>
+    </header>
+
+    <main class="profile-picker" id="mainContent" aria-labelledby="page-title">
+      <section class="hero-panel" aria-labelledby="page-title">
+        <p class="eyebrow">Tela inicial</p>
+        <h1 id="page-title">Quem está assistindo?</h1>
+
+        <ul class="profiles-grid">
+          <li class="profile-item">
+            <button class="profile-card" type="button" data-profile="Felipe" data-color="#4f9cff" aria-label="Entrar com o perfil Felipe" aria-pressed="false">
+              <span class="avatar-frame">
+                <img src="./assets/profiles/Felipe.jpg" alt="Avatar do perfil Felipe">
+                <span class="profile-name">Felipe</span>
+              </span>
+            </button>
+          </li>
+
+          <li class="profile-item">
+            <button class="profile-card" type="button" data-profile="Ryan" data-color="#4dd08b" aria-label="Entrar com o perfil Ryan" aria-pressed="false">
+              <span class="avatar-frame">
+                <img src="./assets/profiles/Ryan.jpg" alt="Avatar do perfil Ryan">
+                <span class="profile-name">Ryan</span>
+              </span>
+            </button>
+          </li>
+
+          <li class="profile-item">
+            <button class="profile-card" type="button" data-profile="Leticia" data-color="#ffb84d" aria-label="Entrar com o perfil Leticia" aria-pressed="false">
+              <span class="avatar-frame">
+                <img src="./assets/profiles/Leticia.jpg" alt="Avatar do perfil Leticia">
+                <span class="profile-name">Leticia</span>
+              </span>
+            </button>
+          </li>
+
+          <li class="profile-item">
+            <button class="profile-card" type="button" data-profile="Charles" data-color="#ff6b7a" aria-label="Entrar com o perfil Charles" aria-pressed="false">
+              <span class="avatar-frame">
+                <img src="./assets/profiles/Charles.jpg" alt="Avatar do perfil Charles">
+                <span class="profile-name">Charles</span>
+              </span>
+            </button>
+          </li>
+        </ul>
+
+        <div class="actions">
+          <button class="manage-btn" type="button" id="manageProfiles">GERENCIAR PERFIS</button>
+        </div>
+      </section>
+    </main>
+
+    <aside class="selection-toast" id="selectionToast" role="status" aria-live="polite" aria-atomic="true" hidden>
+      <p class="toast-label">Perfil selecionado</p>
+      <strong id="selectedProfileName">Felipe</strong>
+      <span id="selectedProfileMessage">Entrando no perfil.</span>
+    </aside>
+  </div>
+
+  <script src="./script/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Catálogo de filmes da Netlipe, com recomendações em frontend puro por perfil.">
+  <title>Netlipe | Catálogo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;700;800&family=Montserrat:wght@400;500;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./style/catalog.css">
+</head>
+
+<body>
+  <a class="sr-only" href="#catalogContent">Pular para o conteúdo principal</a>
+
+  <div class="catalog-transition" id="catalogTransition" aria-hidden="true">
+    <span class="catalog-transition-logo">NETLIPE</span>
+  </div>
+
+  <div class="page-loader" id="pageLoader" aria-hidden="true">
+    <div class="page-loader-card" role="status" aria-live="polite" aria-atomic="true">
+      <span class="page-loader-brand">NETLIPE</span>
+      <span class="page-loader-text">Carregando recomendações...</span>
+    </div>
+  </div>
+
+  <div class="catalog-shell">
+    <header class="catalog-topbar">
+      <a class="brand" href="./index.html" aria-label="Voltar para a seleção de perfis da Netlipe">
+        <span>NETLIPE</span>
+      </a>
+
+      <nav class="catalog-nav" aria-label="Navegação principal">
+        <a href="#for-you">Para você</a>
+        <a href="#trending">Em alta</a>
+        <a href="#continue">Continuar assistindo</a>
+        <a href="#my-list">Minha lista</a>
+      </nav>
+
+      <div class="catalog-actions">
+        <form class="catalog-search" id="catalogSearchForm" role="search">
+          <label class="sr-only" for="catalogSearchInput">Buscar filmes e séries</label>
+          <input type="search" id="catalogSearchInput" placeholder="Buscar no catálogo">
+        </form>
+
+        <button
+          class="theme-toggle"
+          type="button"
+          id="themeToggle"
+          aria-label="Alternar entre modo escuro e claro"
+          aria-pressed="false">
+          <span class="theme-toggle-track" aria-hidden="true">
+            <span class="theme-toggle-icon theme-toggle-icon-dark">Dark</span>
+            <span class="theme-toggle-thumb"></span>
+            <span class="theme-toggle-icon theme-toggle-icon-light">Light</span>
+          </span>
+        </button>
+
+        <a class="profile-chip" href="./index.html" aria-label="Trocar perfil">
+          <img id="activeProfileAvatar" src="./assets/profiles/Felipe.jpg" alt="">
+          <span id="activeProfileName">Felipe</span>
+        </a>
+      </div>
+    </header>
+
+    <main id="catalogContent" aria-busy="true">
+      <section class="hero-banner" id="heroBanner" aria-labelledby="heroTitle">
+        <div class="hero-copy">
+          <p class="hero-kicker" id="heroKicker">Sugestão principal</p>
+          <h1 id="heroTitle">Carregando catálogo...</h1>
+          <p class="hero-meta" id="heroMeta"></p>
+          <p class="hero-description" id="heroDescription"></p>
+
+          <div class="hero-buttons">
+            <button class="hero-btn hero-btn-primary" type="button" id="playHero">Assistir</button>
+            <button class="hero-btn hero-btn-secondary" type="button" id="saveHero">Minha Lista</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="catalog-toolbar" aria-labelledby="catalogFiltersTitle">
+        <h2 class="sr-only" id="catalogFiltersTitle">Filtros do catálogo</h2>
+        <div class="filter-group" id="genreFilters" role="toolbar" aria-label="Filtrar por gênero">
+          <button class="filter-chip is-active" type="button" data-filter="Todos" aria-pressed="true">Todos</button>
+          <button class="filter-chip" type="button" data-filter="Acao" aria-pressed="false">Ação</button>
+          <button class="filter-chip" type="button" data-filter="Drama" aria-pressed="false">Drama</button>
+          <button class="filter-chip" type="button" data-filter="Romance" aria-pressed="false">Romance</button>
+          <button class="filter-chip" type="button" data-filter="Suspense" aria-pressed="false">Suspense</button>
+          <button class="filter-chip" type="button" data-filter="Serie" aria-pressed="false">Séries</button>
+        </div>
+      </section>
+
+      <section class="rows-section" id="catalogRows" aria-live="polite" aria-label="Listas de recomendações"></section>
+    </main>
+
+    <aside class="selection-toast" id="catalogToast" role="status" aria-live="polite" aria-atomic="true" hidden>
+      <p class="toast-label">Netlipe</p>
+      <strong id="catalogToastTitle">Catálogo pronto</strong>
+      <span id="catalogToastMessage">As sugestões foram carregadas para este perfil.</span>
+    </aside>
+  </div>
+
+  <script src="./script/catalog-data.js"></script>
+  <script src="./script/catalog.js"></script>
+</body>
+
+</html>
